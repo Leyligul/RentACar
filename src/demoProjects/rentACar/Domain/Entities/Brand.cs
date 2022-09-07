@@ -10,6 +10,10 @@ namespace Domain.Entities
     public class Brand:Entity
     {
         public string Name { get; set; }
+
+        //virtual kullanmak zorunda değiliz ilişkilndirme yaparken. EntityFramework'de
+        //virtual kullanmazsak sıkıntı olmuyor. Ama gerekli olan ORM olabilir.
+        public virtual ICollection<Model> Models{ get; set; }
         public Brand()
         {
 
