@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
 
             RegisteredDto result = await Mediator.Send(registerCommand);
             setRefreshTokenToCookie(result.RefreshToken);
-            return Created("", result);
+            return Created("", result.Accesstoken);
             
         }
 
