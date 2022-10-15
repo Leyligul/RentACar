@@ -14,12 +14,12 @@ public class User : Entity
     public AuthenticatorType AuthenticatorType { get; set; }
 
     public virtual ICollection<UserOperationClaim> UserOperationClaims { get; set; }
-    public virtual ICollection<RefreshToken> RefreshTokens { get; set; }
+    public virtual ICollection<RefreshTokenDto> RefreshTokens { get; set; }
 
     public User()
     {
         UserOperationClaims = new HashSet<UserOperationClaim>();
-        RefreshTokens = new HashSet<RefreshToken>();
+        RefreshTokens = new HashSet<RefreshTokenDto>();
     }
 
     public User(int id, string firstName, string lastName, string email, byte[] passwordSalt, byte[] passwordHash,

@@ -1,4 +1,5 @@
-﻿using Application.Features.Auth.Commands.Register;
+﻿using Application.Features.Auth.Commands.Login;
+using Application.Features.Auth.Commands.Register;
 using Application.Features.Auth.Dtos;
 using Core.Security.Dtos;
 using Core.Security.Entities;
@@ -28,8 +29,24 @@ namespace WebApplication1.Controllers
             
         }
 
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
+        {
+            LoginCommand loginCommand = new()
+            {
+                UserForLoginDto = userForLoginDto,
+                IpAddress = GetIpAddress()
+            };
 
-        private void setRefreshTokenToCookie (RefreshToken refreshToken)
+            LoggedDto result = await Mediator.Send(loginCommand);
+
+            if(result.RefreshToken is not null)  setRefreshTokenToCookie(result.RefreshToken);
+           
+            return Ok(result.Accesstoken);
+
+        }
+
+        private void setRefreshTokenToCookie (RefreshTokenDto refreshToken)
         {
             CookieOptions cookieOptions = new()
             {

@@ -25,9 +25,9 @@ namespace Application.Services.AuthService
             _refreshTokenRepository = refreshTokenRepository;
         }
 
-        public async Task<RefreshToken> AddRefreshToken(RefreshToken refreshToken)
+        public async Task<RefreshTokenDto> AddRefreshToken(RefreshTokenDto refreshToken)
         {
-            RefreshToken addedRefreshToken = await _refreshTokenRepository.AddAsync(refreshToken);
+            RefreshTokenDto addedRefreshToken = await _refreshTokenRepository.AddAsync(refreshToken);
             return addedRefreshToken;
         }
 
@@ -45,9 +45,9 @@ namespace Application.Services.AuthService
             return accesstoken; 
         }
 
-        public Task<RefreshToken> CreateRefreshToken(User user, string ipAddress)
+        public Task<RefreshTokenDto> CreateRefreshToken(User user, string ipAddress)
         {
-            RefreshToken refreshToken = _tokenHelper.CreateRefreshToken(user, ipAddress);
+            RefreshTokenDto refreshToken = _tokenHelper.CreateRefreshToken(user, ipAddress);
             return Task.FromResult(refreshToken);
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Core.Security.Entities;
 
-public class RefreshToken : Entity
+public class RefreshTokenDto : Entity
 {
     public int UserId { get; set; }
     public string Token { get; set; }
@@ -20,11 +20,11 @@ public class RefreshToken : Entity
 
     public virtual User User { get; set; }
 
-    public RefreshToken()
+    public RefreshTokenDto()
     {
     }
 
-    public RefreshToken(int id, string token, DateTime expires, DateTime created, string createdByIp, DateTime? revoked,
+    public RefreshTokenDto(int id, string token, DateTime expires, DateTime created, string createdByIp, DateTime? revoked,
                         string revokedByIp, string replacedByToken, string reasonRevoked)
     {
         Id = id;

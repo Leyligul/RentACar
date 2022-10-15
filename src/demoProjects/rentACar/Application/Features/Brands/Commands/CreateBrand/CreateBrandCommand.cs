@@ -2,6 +2,7 @@
 using Application.Features.Brands.Rules;
 using Application.Services.Repositories;
 using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Domain.Entities;
 using MediatR;
 using System;
@@ -12,9 +13,11 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Brands.Commands.CreateBrand
 {
-    public class CreateBrandCommand : IRequest<CreatedBrandDto>
+    public class CreateBrandCommand : IRequest<CreatedBrandDto>, ISecuredRequest
     {
         public string Name{ get; set; }
+
+        public string[] Roles => new[] { "admin" };
 
         public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandDto>
         {

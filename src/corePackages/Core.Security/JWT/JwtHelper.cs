@@ -37,9 +37,9 @@ public class JwtHelper : ITokenHelper
         };
     }
 
-    public RefreshToken CreateRefreshToken(User user, string ipAddress)
+    public RefreshTokenDto CreateRefreshToken(User user, string ipAddress)
     {
-        RefreshToken refreshToken = new()
+        RefreshTokenDto refreshToken = new()
         {
             UserId = user.Id,
             Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),

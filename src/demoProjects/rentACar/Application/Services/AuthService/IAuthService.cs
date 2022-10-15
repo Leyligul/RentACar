@@ -12,8 +12,8 @@ namespace Application.Services.AuthService
     {
         public Task<AccessToken> CreateAccessToken(User user);
 
-        public Task<RefreshToken> AddRefreshToken(RefreshToken token);
-        public Task<RefreshToken> CreateRefreshToken(User user, string ipAddress);
+        public Task<RefreshTokenDto> AddRefreshToken(RefreshTokenDto token);
+        public Task<RefreshTokenDto> CreateRefreshToken(User user, string ipAddress);
 
     }
 }

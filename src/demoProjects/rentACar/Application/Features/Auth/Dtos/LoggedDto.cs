@@ -1,5 +1,4 @@
 ﻿using Core.Security.Entities;
-using Core.Security.JWT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Auth.Dtos
 {
-   public class RefreshedTokenDto
+    public class LoggedDto:RefreshedTokenDto
     {
-        public AccessToken Accesstoken { get; set; }
-        public RefreshTokenDto RefreshToken { get; set; }
     }
 }

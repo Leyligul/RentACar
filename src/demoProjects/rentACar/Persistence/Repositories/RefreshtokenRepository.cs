@@ -5,7 +5,7 @@ using Persistence.Contexts;
 
 namespace Persistence.Repositories
 {
-    public class RefreshtokenRepository : EfRepositoryBase<RefreshToken, BaseDbContext>, IRefreshTokenRepository
+    public class RefreshtokenRepository : EfRepositoryBase<RefreshTokenDto, BaseDbContext>, IRefreshTokenRepository
     {
         public RefreshtokenRepository(BaseDbContext context) : base(context)
         {
