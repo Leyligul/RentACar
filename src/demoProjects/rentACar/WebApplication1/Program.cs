@@ -75,4 +75,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-//15.10.22
+//15.10.2
